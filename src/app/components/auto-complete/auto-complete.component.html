@@ -1,0 +1,14 @@
+<div class="widget-container">
+    <div class="input-container" #searchInputContainer>
+        <input type="text" placeholder="Search Company" [ngModel]='model' (ngModelChange)='changed($event)'/>
+        <ion-icon class="icon" name="search-outline"></ion-icon>
+    </div>
+    <div class="suggestions-container" #suggestionsContainer>
+        <ul>
+            <li *ngFor="let suggestion of suggestions"> 
+                {{ suggestion.name }} <small class="contact"> <ion-icon class="icon" name="call-outline"></ion-icon> {{ suggestion.contactInfo }} </small><br>
+                <small>{{ suggestion.address }} </small>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+.widget-container {
+    .input-container {
+        display: flex;
+        position: relative;
+        flex: 1;
+        align-items: center;
+        width: 100%;
+        
+        input {
+            display: inline-block;
+            flex: 1;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .icon {
+            font-size: 1.5em;
+            margin-right: 20px; 
+        }
+
+        &.expanded {
+            border-bottom: 1px solid #ababab;
+        }
+    }
+    
+
+    .suggestions-container {
+        ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 0;
+            list-style: none;
+            
+            li {
+                padding: 15px 20px;
+
+                &:hover {
+                    background-color: #efefef;
+                }
+            }
+        }
+        &:not(.show) {
+            display: none;
+        }
+    
+    }
+
+    border: 1px solid #ababab;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.contact {
+    margin-left: 20px;
+    color: #9e9e9e;
+}
