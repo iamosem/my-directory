@@ -14,7 +14,7 @@ export class HomePage {
   constructor() { }
 
   performSearch(search: any) {
-    if (null != search && 'value' in search) {
+    if (null != search && 'value' in search && null != search.value && '' !== search.value) {
       const searchStr = search.value.toLowerCase();
       this.suggestions = SAMPLE_DATA.filter(d => {
         return d.name.toLowerCase().includes(searchStr) || d.address.toLowerCase().includes(searchStr) ||

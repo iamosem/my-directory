@@ -24,6 +24,22 @@
 
         &.expanded {
             border-bottom: 1px solid #ababab;
+
+            .icon.clear {
+                display: inline-block;
+            }
+
+            .icon.search {
+                display: none;
+            }
+        }
+
+        .icon.clear {
+            display: none;
+        }
+
+        .icon.search {
+            display: inline-block;
         }
     }
     

@@ -11,8 +11,10 @@ import {
     styleUrls: ['auto-complete.component.scss']
 })
 export class AutoCompleteComponent implements OnChanges {
-    @ViewChild('searchInputContainer', { read: ElementRef, static: false }) searchInputEl: ElementRef;
-    @ViewChild('suggestionsContainer', { read: ElementRef, static: false }) suggestionsEl: ElementRef;
+    @ViewChild('searchInputContainer', { read: ElementRef, static: false }) searchInputContainerEl: ElementRef;
+    @ViewChild('suggestionsContainer', { read: ElementRef, static: false }) suggestionsContainerEl: ElementRef;
+
+    searchStr: string;
 
     @Input() debounceTime = 500;
     @Input() suggestions: any[] = [];
@@ -45,16 +47,22 @@ export class AutoCompleteComponent implements OnChanges {
     }
 
     showSuggestions() {
-        if (null == this.searchInputEl || null == this.suggestionsEl) {
+        if (null == this.searchInputContainerEl || null == this.suggestionsContainerEl) {
             return;
         }
-
         if (null != this.suggestions && this.suggestions.length > 0) {
-            this.renderer.addClass(this.searchInputEl.nativeElement, 'expanded');
-            this.renderer.addClass(this.suggestionsEl.nativeElement, 'show');
+            this.renderer.addClass(this.searchInputContainerEl.nativeElement, 'expanded');
+            this.renderer.addClass(this.suggestionsContainerEl.nativeElement, 'show');
         } else {
-            this.renderer.removeClass(this.searchInputEl.nativeElement, 'expanded');
-            this.renderer.removeClass(this.suggestionsEl.nativeElement, 'show');
+            this.renderer.removeClass(this.searchInputContainerEl.nativeElement, 'expanded');
+            this.renderer.removeClass(this.suggestionsContainerEl.nativeElement, 'show');
+        }
+    }
+
+    clearSearch() {
+        if (null != this.searchStr && '' !== this.searchStr) {
+            this.searchStr = '';
+            this.performSearch('');
         }
     }
 }
